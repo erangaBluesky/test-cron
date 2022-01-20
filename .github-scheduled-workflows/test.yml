@@ -1,11 +1,15 @@
-name: "example-cron-action"
+name: Master
 on:
+  push:
+    branches:
+      - master
   schedule:
-    - cron:  '* * * * *'    # At every 15th minute
-
+    - cron: '* * * * *'
 jobs:
-  singleJobName:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Do some work
-        run: echo $GITHUB_SHA
+    - uses: actions/checkout@v1
+    - name: Running
+      run: |
+        echo "Running!"
