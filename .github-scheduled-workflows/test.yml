@@ -1,0 +1,11 @@
+name: "example-cron-action"
+on:
+  schedule:
+    - cron:  '* * * * *'    # At every 15th minute
+
+jobs:
+  singleJobName:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do some work
+        run: echo $GITHUB_SHA
